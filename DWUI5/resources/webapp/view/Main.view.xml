@@ -1,0 +1,11 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:html="http://www.w3.org/1999/xhtml" xmlns="sap.m" controllerName="DWUI5.DWUI5.controller.Main" displayBlock="true">
+	<App id="idAppControl">
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+				    <BusyIndicator busy="true" busyIndicatorDelay="0" text="Please wait..." id="indicator0"/>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

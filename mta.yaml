@@ -1,0 +1,72 @@
+ID: AIrigare-DataWarehouse
+_schema-version: '2.1'
+version: 0.0.1
+
+modules:
+ - name: DW
+   type: hdb
+   path: DW
+   requires:
+    - name: hdi_DW
+
+
+ - name: DWUI5
+   type: html5
+   path: DWUI5
+
+
+ - name: UI-AIrigare-DataWarehouse
+   type: siteentry
+   path: UI
+   parameters:
+      memory: 64M
+   requires:
+    - name: sap-portal-services-host-AIrigare-DataWarehouse
+    - name: portal-uaa-AIrigare-DataWarehouse
+    - name: sapui5-provider
+      properties:
+         sapui5url: ~{url}
+
+
+ - name: UI-Content-AIrigare-DataWarehouse
+   type: sitecontent
+   path: UI-Content
+   parameters:
+      memory: 32M
+   requires:
+    - name: sap-portal-services-client-AIrigare-DataWarehouse
+    - name: portal-uaa-AIrigare-DataWarehouse
+
+resources:
+ - name: hdi_DW
+   properties:
+      hdi-container-name: ${service-name}
+   type: com.sap.xs.hdi-container
+
+ - name: sap-portal-services-host-AIrigare-DataWarehouse
+   parameters:
+      config:
+         siteId: AIrigare-DataWarehouse
+   type: com.sap.portal.site-host
+
+
+ - name: portal-uaa-AIrigare-DataWarehouse
+   parameters:
+      service-plan: space
+   type: com.sap.xs.uaa
+
+
+ - name: sapui5-provider
+   parameters:
+      provider-id: com.sap.ui5.dist.sapui5-dist-xsa.XSAC_UI5_FESV5:sapui5_fesv5
+      version: '>=1.60.0'
+      provider-nid: mta
+   type: configuration
+
+
+ - name: sap-portal-services-client-AIrigare-DataWarehouse
+   parameters:
+      config:
+         siteId: AIrigare-DataWarehouse
+   type: com.sap.portal.site-content
+
