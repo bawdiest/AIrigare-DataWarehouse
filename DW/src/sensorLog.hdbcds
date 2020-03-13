@@ -16,35 +16,10 @@ context sensorLog {
 view sensorLog_RAW as
     select from sensorLog.sensorData as sensorData
     {
-        id
-    };
-
-view sensorLog_RAW as
-    select from sensorLog.sensorData as sensorData
-    {
-        sysID
-    };
-
-view sensorLog_RAW as
-    select from sensorLog.sensorData as sensorData
-    {
-        recID
-    };
-
-view sensorLog_RAW as
-    select from sensorLog.sensorData as sensorData
-    {
-        msgID
-    };
-
-view sensorLog_RAW as
-    select from sensorLog.sensorData as sensorData
-    {
-        msgM1
-    };
-
-view sensorLog_RAW as
-    select from sensorLog.sensorData as sensorData
-    {
+        id,
+        sysID,
+        recID,
+        msgID,
+        msgM1,
         TIMESTAMP
     };
